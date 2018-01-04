@@ -4,7 +4,7 @@ stage 'Dev Build'
 node {
     try{
         checkout scm
-        mvn 'clean compile'
+       echo "build"
     }catch(Exception e){
         
     }
@@ -13,7 +13,7 @@ node {
 stage 'Unit Testing'
 node {
     try{
-         mvn 'test'
+         echo 'test'
     }catch(Exception e){
         
     }
