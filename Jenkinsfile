@@ -1,17 +1,21 @@
 #!groovy
 
-stage 'Build'
 node {
     try{
-        if(${env.REPO_TYPE} == 'micro'){
-         echo "micro"            
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']],
+         doGenerateSubmoduleConfigurations: false,
+         extensions: [], submoduleCfg: [],
+         userRemoteConfigs: [[url: env.REPO_NAME]]])
+         
+        if(env.PROJECT_TYPE == 'micro'){
+            echo "micro"
         } else {
            echo "spark"   
         }
     }catch(Exception e){
         
     }
-}
+
 
 stage 'Unit Testing'
 node {
