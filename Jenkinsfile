@@ -4,7 +4,7 @@ stage 'Dev Build'
 node {
     try{
         checkout scm
-        echo ${env.REPO_NAME}
+        echo "${env.REPO_NAME}"
     }catch(Exception e){
         
     }
