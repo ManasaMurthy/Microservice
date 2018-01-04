@@ -1,1 +1,7 @@
+#!groovy
 
+node {
+
+echo "cd job"
+ }
+ 
