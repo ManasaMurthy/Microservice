@@ -1,10 +1,13 @@
 #!groovy
 
-stage 'Dev Build'
+stage 'Build'
 node {
     try{
-        checkout scm
-        echo "${env.REPO_NAME}"
+        if(${env.REPO_TYPE} == 'micro'){
+         echo "micro"            
+        } else {
+           echo "spark"   
+        }
     }catch(Exception e){
         
     }
@@ -29,11 +32,3 @@ node {
     }
    
 }
-
-input message: "Ready for Dev Deployment?"
-
-stage name: 'Dev Deployment', concurrency: 1
-node {
-   echo 'deploying..'
-}
-
