@@ -40,7 +40,7 @@ stage 'Deployment'
 node {
     try{
         echo env.IS_CD
-        if(env.IS_CD){
+        if(env.IS_CD=="true"){
          echo 'cd'   
         }else {
           echo 'just ci' 
