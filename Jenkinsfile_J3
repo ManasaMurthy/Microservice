@@ -36,3 +36,16 @@ node {
     }
    
 }
+stage 'Deployment'
+node {
+    try{
+        if(env.IS_CD ){
+         echo 'cd'   
+        }else {
+          echo 'just ci' 
+        }
+        
+    }catch(Exception e){
+        
+    }
+}
