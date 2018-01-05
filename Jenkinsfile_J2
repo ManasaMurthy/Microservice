@@ -3,7 +3,7 @@ node {
     //sh ('git init')
     //sh ('git pull https://github.com/ManasaMurthy/Microservice')
     checkout scm
-    //sh ('echo ${params.REPO_NAME},${params.BRANCH_NAME},${params.PROJECT_TYPE} >> repo.csv')
+    sh ('echo ${params.REPO_NAME},${params.BRANCH_NAME},${params.PROJECT_TYPE} >> repo.csv')
     //sh ('git add repo.csv')
     //sh ('git commit -m "Repository Added"')
     //sh ('git remote set-url origin git@github.com:ManasaMurthy/Microservice.git')
