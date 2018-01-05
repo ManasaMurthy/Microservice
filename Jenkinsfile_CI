@@ -16,7 +16,7 @@ node {
         
     }
 
-
+}
 stage 'Unit Testing'
 node {
     try{
