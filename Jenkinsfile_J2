@@ -1,7 +1,7 @@
 #!groovy
 node {
-    checkout scm
-    //sh ('git pull https://github.com/ManasaMurthy/Microservice')
+    sh ('git init')
+    sh ('git pull https://github.com/ManasaMurthy/Microservice')
     sh ("echo ${params.REPO_NAME},${params.BRANCH_NAME},${params.PROJECT_TYPE} >> repo.csv")
     sh ('git add repo.csv')
     sh ('git commit -m "message"')
