@@ -7,5 +7,5 @@ node {
     sh ('git add repo.csv')
     sh ('git commit -m "Repository Added"')
     //sh ('git remote set-url origin git@github.com:ManasaMurthy/Microservice.git')
-    sh ('git push -u origin master')
+    sh ('git push origin master')
 }
