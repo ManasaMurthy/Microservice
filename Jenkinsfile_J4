@@ -1,8 +1,7 @@
 #!groovy
 
 node {
-sh ('git init')
-sh ('git pull https://github.com/ManasaMurthy/Microservice')
+checkout scm
 env.WORKSPACE = pwd()
 def file = new File("${env.WORKSPACE}/Book1.csv")
 def lines = file.readLines()
