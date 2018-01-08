@@ -1,9 +1,5 @@
 #!groovy
 
-#!groovy
-
-stage 'Build'
-
 stage 'Build'
 node {
 	try{
