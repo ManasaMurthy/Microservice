@@ -10,6 +10,7 @@ node {
         }
         sh ("git clone '${env.GIT_URL}' -b '${env.BRANCH_NAME}'")
         dir(env.REPO_NAME){
+          sh ("ls -l")
            if(env.PROJECT_TYPE == 'micro'){
             echo "micro"
         } else {
