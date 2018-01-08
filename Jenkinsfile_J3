@@ -6,7 +6,7 @@ node {
          doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
          userRemoteConfigs: [[url: env.REPO_NAME]]])
-         
+         sh ('cat README.md')
         if(env.PROJECT_TYPE == 'micro'){
             echo "micro"
         } else {
