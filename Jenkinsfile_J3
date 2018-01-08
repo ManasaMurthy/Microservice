@@ -2,7 +2,7 @@
 
 node {
     try{
-        checkout([$class: 'GitSCM', branches: [[name: 'env.BRANCH_NAME']],
+        checkout([$class: 'GitSCM', branches: [[name: refs/heads/'env.BRANCH_NAME']],
          doGenerateSubmoduleConfigurations: false,
          extensions: [], submoduleCfg: [],
          userRemoteConfigs: [[url: env.REPO_NAME]]])
