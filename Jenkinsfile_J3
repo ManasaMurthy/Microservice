@@ -2,7 +2,8 @@
 
 node {
     try{
-         sh ('git remote set-url origin env.REPO_URL')
+        sh ('echo env.REPO_URL')
+        sh ('git remote set-url origin ${env.REPO_URL}')
          sh ('git pull origin env.BRANCH_NAME')
          sh ('cat README.md')
         if(env.PROJECT_TYPE == 'micro'){
