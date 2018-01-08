@@ -1,24 +1,48 @@
 #!groovy
 
+#!groovy
+
+stage 'Build'
+
+stage 'Build'
+node {
+	try{
+     def exist = fileExists env.REPO_NAME
+     if(exist){
+         dir(env.REPO_NAME){
+            deleteDir()
+        }
+     } 
+     sh ("git clone '${env.GIT_URL}' -b '${env.BRANCH_NAME}'")
+     dir(env.REPO_NAME){
+         if(env.PROJECT_TYPE == 'micro'){
+                echo "micro"
+          } else {
+                echo "spark"   
+          }
+     }
+	 }catch(Exception e){
+		echo "Exception"
+	 }
+}
+stage 'Unit Testing'
+node {
+	try {
+    dir(env.REPO_NAME){
+    
+    }
+	}catch(Exception e){
+		echo "Exception"
+	}
+}
+
+stage 'Sonar analysis'
 node {
     try{
-        def exist = fileExists env.REPO_NAME
-        if(exist){
-            dir(env.REPO_NAME){
-                deleteDir()
-            }
-        }
-        sh ("git clone '${env.GIT_URL}' -b '${env.BRANCH_NAME}'")
-        dir(env.REPO_NAME){
-          sh ("git init")
-          sh ("ls -l")
-           if(env.PROJECT_TYPE == 'micro'){
-            echo "micro"
-        } else {
-           echo "spark"   
-        }
-        }
-    }catch(Exception e){
-        
-    }
+	
+	}catch(Exception e){
+		echo "Exception"
+	}
+}
+}
 }
