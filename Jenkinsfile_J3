@@ -4,7 +4,9 @@ node {
     try{
         def exist = fileExists env.REPO_NAME
         if(exist){
-            deleteDir env.REPO_NAME
+            dir(env.REPO_NAME){
+                deleteDir()
+            }
         }
         sh ("git clone '${env.GIT_URL}' -b '${env.BRANCH_NAME}'")
         dir(env.REPO_NAME){
