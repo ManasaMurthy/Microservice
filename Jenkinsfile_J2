@@ -5,7 +5,6 @@ node {
     sh ("echo ${params.REPO_NAME},${params.BRANCH_NAME},${params.PROJECT_TYPE} >> repo.csv")
     sh ('git add repo.csv')
     sh ('git commit -m "message"')
-    sh ('git remote origin  https://github.com/ManasaMurthy/Microservice')
     sh ('git remote set-url origin git@github.com:ManasaMurthy/Microservice.git')
     sh ('git push -u origin master')
 }
