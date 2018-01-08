@@ -1,10 +1,11 @@
 #!groovy
 node {
-    sh ('git init')
-    sh ('git pull https://github.com/ManasaMurthy/Microservice')
+    //sh ('git init')
+    //sh ('git pull https://github.com/ManasaMurthy/Microservice')
+    checkout scm
     sh ("echo ${params.REPO_NAME},${params.BRANCH_NAME},${params.PROJECT_TYPE} >> repo.csv")
     sh ('git add repo.csv')
     sh ('git commit -m "message"')
-    sh ('git remote set-url origin git@github.com:ManasaMurthy/Microservice.git')
+    //sh ('git remote set-url origin git@github.com:ManasaMurthy/Microservice.git')
     sh ('git push -u origin master')
 }
