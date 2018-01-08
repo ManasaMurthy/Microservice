@@ -2,10 +2,8 @@
 
 node {
     try{
-        checkout([$class: 'GitSCM', branches: [[name: refs/heads/'env.BRANCH_NAME']],
-         doGenerateSubmoduleConfigurations: false,
-         extensions: [], submoduleCfg: [],
-         userRemoteConfigs: [[url: env.REPO_NAME]]])
+         sh ('git remote set-url origin env.REPO_URL')
+         sh ('git pull origin env.BRANCH_NAME')
          sh ('cat README.md')
         if(env.PROJECT_TYPE == 'micro'){
             echo "micro"
