@@ -2,25 +2,31 @@
 
 node {
     try{
-        def url = $ {env.REPO_URL}
-        sh ('echo ${url}')
-        sh ('git remote set-url origin ${env.REPO_URL}')
-         sh ('git pull origin env.BRANCH_NAME')
-         sh ('cat README.md')
-        if(env.PROJECT_TYPE == 'micro'){
-            echo "micro"
-        } else {
-           echo "spark"   
-        }
+            sh ('git init')
+            def exist = fileExists env.REPO_NAME
+            if(exist){
+                deleteDir env.REPO_NAME
+            }
+            sh ("git clone '${env.GIT_URL}' -b '${env.BRANCH_NAME}'")
+            dir(env.REPO_NAME){
+                 if(env.PROJECT_TYPE == 'micro'){
+                        echo "micro"
+                 } 
+                else {
+                        echo "spark"   
+                      }
+            }
     }catch(Exception e){
-        
+        //TODO : Trigger MAIL
     }
 
 }
 stage 'Unit Testing'
 node {
     try{
-         echo 'test'
+         dir(env.REPO_NAME){
+          echo "unit testing"   
+         }
     }catch(Exception e){
         
     }
@@ -30,7 +36,9 @@ node {
 stage 'Static Code Analysis - Sonar'
 node {
     try{
-        
+        dir(env.REPO_NAME){
+          echo "sonar"   
+         }
     }catch(Exception e){
        
     }
@@ -39,13 +47,13 @@ node {
 stage 'Deployment'
 node {
     try{
-        echo env.IS_CD
-        if(env.IS_CD=="true"){
-         echo 'cd'   
-        }else {
-          echo 'just ci' 
-        }
-        
+        dir(env.REPO_NAME){
+             if(env.IS_CD=="true"){
+                echo 'cd'   
+             }else {
+                 echo 'just ci' 
+            }   
+         }     
     }catch(Exception e){
         
     }
