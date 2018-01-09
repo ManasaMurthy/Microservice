@@ -7,11 +7,11 @@ def lines = file.readLines()
         lines.each { String line ->
             def values = line.split(',')
                 //echo values[0]
-                echo env.ORG_NAME
-                echo values[0]
-                echo env.TOKEN
-                echo values[1]
-         //build job: 'J1', parameters: [[$class: 'StringParameterValue', name: 'ORG_NAME',value: env.ORG_NAME],[$class: 'StringParameterValue', name: 'REPO_NAME', value: values[0]],[$class: 'StringParameterValue', name: 'TOKEN', value: env.TOKEN],[$class: 'StringParameterValue', name: 'PROJECT_TYPE', value: values[1]]]
+                //echo env.ORG_NAME
+                //echo values[0]
+                //echo env.TOKEN
+                //echo values[1]
+         build job: 'J1', parameters: [[$class: 'StringParameterValue', name: 'ORG_NAME',value: env.ORG_NAME],[$class: 'StringParameterValue', name: 'REPO_NAME', value: values[0]],[$class: 'StringParameterValue', name: 'TOKEN', value: env.TOKEN],[$class: 'StringParameterValue', name: 'PROJECT_TYPE', value: values[1]]]
       }
 
 }
