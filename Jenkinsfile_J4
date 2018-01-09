@@ -6,7 +6,9 @@ checkout scm
 env.WORKSPACE = pwd()
 def file = new File("${env.WORKSPACE}/repo.csv")
 def lines = file.readLines()
-echo lines
+ lines.each { String line ->
+  echo line
+ }
 
 }
  
