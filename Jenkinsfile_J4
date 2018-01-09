@@ -1,11 +1,12 @@
 #!groovy
 
 node {
- cleanWs()
+cleanWs()
 checkout scm
 env.WORKSPACE = pwd()
 def file = new File("${env.WORKSPACE}/repo.csv")
-
+def lines = file.readLines()
+echo lines
 
 }
  
