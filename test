@@ -1,0 +1,4 @@
+#!groovy
+node{
+  echo env.${env.BUILD_URL}
+}
