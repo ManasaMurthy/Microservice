@@ -1,5 +1,6 @@
 #!groovy
 node{
+    cleanWs() 
     sh ("git init")
     sh ("git pull https://github.com/ManasaMurthy/Microservice")
     sh ("echo ${params.REPO_URL},${params.REPO_URL},${params.BRANCH_NAME},${params.PROJ_TYPE} >> repo.csv")
