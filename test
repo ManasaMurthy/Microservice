@@ -1,4 +1,4 @@
 #!groovy
 node{
-  echo env.JOB_URL
+  echo env.BUILD_URL
 }
