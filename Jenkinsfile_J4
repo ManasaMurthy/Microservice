@@ -8,7 +8,7 @@ def file = new File("${env.WORKSPACE}/repo.csv")
 def lines = file.readLines()
  lines.each { String line ->
   def values = line.split(',')
-  println values
+  println values[1]
  }
 
 }
