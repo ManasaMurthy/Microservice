@@ -9,7 +9,7 @@ def values = new String[3]
 def lines = file.readLines()
  lines.each { String line ->
   values = line.split(',')
-  println line
+  println values[1]
  }
 
 }
