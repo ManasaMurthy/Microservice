@@ -7,8 +7,8 @@ env.WORKSPACE = pwd()
 def file = new File("${env.WORKSPACE}/repo.csv")
 def lines = file.readLines()
  lines.each { String line ->
-  echo line
+  def values = line.split(',')
+  echo values[0]
  }
 
 }
- 
