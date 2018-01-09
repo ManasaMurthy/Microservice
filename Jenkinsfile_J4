@@ -7,7 +7,7 @@ env.WORKSPACE = pwd()
 def file = new File("${env.WORKSPACE}/repo.csv")
 def lines = file.readLines()
 lines.each { String line ->
-       if (myString?.trim()) {
+       if (line?.trim()) {
 
        }else{
             def values = line.split(',')
