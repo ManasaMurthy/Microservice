@@ -1,0 +1,12 @@
+#!groovy
+node {
+sh ("wget '${env.REPO_FILE_URL}'")
+def file = new File("${env.WORKSPACE}/${env.REPO_FILE_NAME}")
+def lines = file.readLines()
+        lines.each { String line ->
+            def values = line.split(',')
+                echo values[0]
+ //           build job: 'J3', parameters: [[$class: 'StringParameterValue', name: 'GIT_URL',$class: 'StringParameterValue', name: 'REPO_NAME', value: values[0]],[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: values[1]],[$class: 'StringParameterValue', name: 'PROJECT_TYPE', value: values[2]]]
+      }
+
+}
