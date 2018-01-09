@@ -6,11 +6,13 @@ checkout scm
 env.WORKSPACE = pwd()
 def file = new File("${env.WORKSPACE}/repo.csv")
 def lines = file.readLines()
-        lines.each { String line ->
-         if(line != " "){ 
+lines.each { String line ->
+       if (myString?.trim()) {
+
+       }else{
             def values = line.split(',')
             build  job: 'J3', parameters: [[$class: 'StringParameterValue', name: 'REPO_URL',value: values[0]],[$class: 'StringParameterValue', name: 'REPO_NAME', value: values[1]],[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: values[2]],[$class: 'BooleanParameterValue', name: 'IS_CD', value: true]]
-         }
+       } 
 
         }
 
