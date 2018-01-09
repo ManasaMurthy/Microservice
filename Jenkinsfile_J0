@@ -1,5 +1,6 @@
 #!groovy
 node {
+cleanWs() 
 sh ("wget '${env.REPO_FILE_URL}'")
 def file = new File("${env.WORKSPACE}/${env.REPO_FILE_NAME}")
 def lines = file.readLines()
