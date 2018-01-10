@@ -44,7 +44,7 @@ node {
 stage 'Deployment'
 node{
 	echo env.IS_CD
-	if(env.IS_CD){
+	if(env.IS_CD == 'true'){
 		echo "Deployment"
 	}
 
