@@ -43,6 +43,7 @@ node {
 }
 stage 'Deployment'
 node{
+	echo env.IS_CD
 	if(env.IS_CD){
 		echo "Deployment"
 	}
