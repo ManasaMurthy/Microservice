@@ -9,7 +9,7 @@ node {
             deleteDir()
         }
      }
-     echo env.BRANCH_NAME
+     println "Executing CI on " + env.REPO_URL + "on branch" + env.BRANCH_NAME
      sh ("git clone '${env.REPO_URL}' -b '${env.BRANCH_NAME}'")
      dir(env.REPO_NAME){
          if(env.PROJECT_TYPE == 'micro'){
@@ -41,4 +41,10 @@ node {
 		echo "Exception"
 	}
 }
+stage 'Deployment'
+node{
+	if(env.IS_CD){
+		echo "Deployment"
+	}
 
+}
