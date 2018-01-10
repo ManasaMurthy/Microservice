@@ -8,7 +8,8 @@ node {
          dir(env.REPO_NAME){
             deleteDir()
         }
-     } 
+     }
+     echo env.BRANCH_NAME
      sh ("git clone '${env.REPO_URL}' -b '${env.BRANCH_NAME}'")
      dir(env.REPO_NAME){
          if(env.PROJECT_TYPE == 'micro'){
