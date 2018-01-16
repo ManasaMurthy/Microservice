@@ -12,7 +12,7 @@ node {
      println "Executing CI on " + env.REPO_URL + " , branch = " + env.BRANCH_NAME
      sh ("git clone '${env.REPO_URL}' -b '${env.BRANCH_NAME}'")
      dir(env.REPO_NAME){
-         if(env.PROJECT_TYPE == 'micro'){
+         if(env.PROJECT_TYPE == 'microservice'){
                 echo "micro"
           } else {
                 echo "spark"   
