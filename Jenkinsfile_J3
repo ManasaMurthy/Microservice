@@ -17,7 +17,7 @@ node {
           } else {
                 echo "spark"   
           }
-	  sh 'sbt compile package'
+	 sbt compile package
      }
 	 }catch(Exception e){
 		echo "Exception"
