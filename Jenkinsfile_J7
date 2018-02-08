@@ -3,6 +3,6 @@
 node {
 cleanWs()
 
-build  job: 'J3', parameters: [[$class: 'StringParameterValue', name: 'REPO_URL',value: params.REPO_URL],[$class: 'StringParameterValue', name: 'PROJECT_TYPE',value: "spark"],[$class: 'StringParameterValue', name: 'REPO_NAME', value: params.REPO_NAME],[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: "Development"],[$class: 'BooleanParameterValue', name: 'IS_CD', value: true]]
+build  job: 'J3', parameters: [[$class: 'StringParameterValue', name: 'REPO_URL',value: params.REPO_URL],[$class: 'StringParameterValue', name: 'PROJECT_TYPE',value: "spark"],[$class: 'StringParameterValue', name: 'REPO_NAME', value: params.REPO_NAME],[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: "master"],[$class: 'BooleanParameterValue', name: 'IS_CD', value: true]]
 
 }
