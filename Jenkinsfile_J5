@@ -1,17 +1,8 @@
 #!groovy
 
 node {
- cleanWs()
-checkout scm
-env.WORKSPACE = pwd()
-def file = new File("${env.WORKSPACE}/run_job.csv")
-def lines = file.readLines()
-lines.each { String line ->
-       if (line?.trim()) {
-            def values = line.split(',')
-            build  job: 'J3', parameters: [[$class: 'StringParameterValue', name: 'REPO_URL',value: values[0]],[$class: 'StringParameterValue', name: 'PROJECT_TYPE',value: values[3]],[$class: 'StringParameterValue', name: 'REPO_NAME', value: values[1]],[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: values[2]],[$class: 'BooleanParameterValue', name: 'IS_CD', value: true]]
-       }
+cleanWs()
 
-        }
+build  job: 'J3', parameters: [[$class: 'StringParameterValue', name: 'REPO_URL',value: params.REPO_URL],[$class: 'StringParameterValue', name: 'PROJECT_TYPE',value: "microservice"],[$class: 'StringParameterValue', name: 'REPO_NAME', value: params.REPO_NAME],[$class: 'StringParameterValue', name: 'BRANCH_NAME', value: "Development"],[$class: 'BooleanParameterValue', name: 'IS_CD', value: true]]
 
 }
