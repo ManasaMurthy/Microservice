@@ -1,6 +1,6 @@
 #!groovy
 node{
-  foo=$(git show --name-only)
-  println foo
+  
+echo "${GIT_BRANCH}"
   office365ConnectorSend message: "Hello world", webhookUrl: "${env.HOOK}"
 }
